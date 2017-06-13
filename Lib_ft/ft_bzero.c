@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/18 10:51:24 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/08 16:03:26 by eramirez         ###   ########.fr       */
+/*   Created: 2017/06/12 16:19:08 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/13 15:01:27 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(const char *s1, const char *s2)
+void ft_bzero(void *s, size_t n)
 {
-	int i;
+	unsigned char *ptr;
 
-	i = 0;
-	if (s1[0] == 0)
-		return (-1 * s2[0]);
-	while (s1[i] == s2[i])
-	{
-		i++;
-		if (s1[i] == 0 && s2[i] == 0)
-			return (0);
-	}
-	return (s1[i] - s2[i]);
+	ptr = (unsigned char*)s;
+	while (n-- > 0)
+		ptr[n] = (unsigned char)0;
+	return;
 }

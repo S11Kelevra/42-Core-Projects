@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/18 10:51:24 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/08 16:03:26 by eramirez         ###   ########.fr       */
+/*   Created: 2017/06/09 12:35:39 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/09 12:41:45 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(const char *s1, const char *s2)
+char *strncat(char *restrict s1, const char *restrict s2, size_t n)
 {
 	int i;
+	int j;
 
 	i = 0;
-	if (s1[0] == 0)
-		return (-1 * s2[0]);
-	while (s1[i] == s2[i])
-	{
+	j = 0;
+	while (s1[i] != 0)
 		i++;
-		if (s1[i] == 0 && s2[i] == 0)
-			return (0);
+	while ((s2[j]!= 0) && n > 0)
+	{
+		s1[i] = s2[j];
+		i++;
+		j++;
+		n--;
 	}
-	return (s1[i] - s2[i]);
+	s1[i] = s2[j];
+	return (s1);
 }

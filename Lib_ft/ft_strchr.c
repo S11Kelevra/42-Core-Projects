@@ -6,7 +6,7 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/07 10:57:00 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/07 12:11:52 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/07 16:59:23 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ char *ft_strchr(const char *str, int c)
 	loc = (char *)str;
 	i = 0;
 	while (str[i] != c && str[i] != 0)
+	{
 		i++;
 		loc++;
+	}
 	return loc;
 }

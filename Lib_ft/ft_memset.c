@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/18 10:51:24 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/08 16:03:26 by eramirez         ###   ########.fr       */
+/*   Created: 2017/06/12 15:43:23 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/13 15:02:48 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(const char *s1, const char *s2)
+void *ft_memset(void *b, int c, size_t len)
 {
-	int i;
+	unsigned char *ptr;
 
-	i = 0;
-	if (s1[0] == 0)
-		return (-1 * s2[0]);
-	while (s1[i] == s2[i])
-	{
-		i++;
-		if (s1[i] == 0 && s2[i] == 0)
-			return (0);
-	}
-	return (s1[i] - s2[i]);
+	ptr = (unsigned char*)b;
+	while (len-- > 0)
+		ptr[len] = (unsigned char)c;
+	return(b);
 }
