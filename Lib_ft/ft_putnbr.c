@@ -1,23 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/12 16:19:08 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/19 15:58:00 by eramirez         ###   ########.fr       */
+/*   Created: 2017/01/16 16:54:13 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/19 14:58:27 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_bzero(void *s, size_t n)
+void	ft_putnbr(int nb)
 {
-	unsigned char *ptr;
+	int remainder;
 
-	ptr = (unsigned char*)s;
-	while (n-- > 0)
+	if (nb < 0)
 	{
-		*ptr++  = 0;
+		if (nb == -2147483648)
+		{
+			ft_putnbr(nb / 10);
+			ft_putchar('8');
+			return ;
+		}
+		nb = nb * -1;
+		ft_putchar('-');
 	}
-	return;
+	if (nb > 9)
+	{
+		remainder = nb % 10;
+		nb = nb / 10;
+		ft_putnbr(nb);
+		ft_putchar(remainder + 48);
+	}
+	else if (nb < 10)
+	{
+		ft_putchar(nb + 48);
+	}
 }

@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/12 16:19:08 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/19 15:58:00 by eramirez         ###   ########.fr       */
+/*   Created: 2017/06/13 15:13:20 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/13 15:38:46 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_bzero(void *s, size_t n)
+void *ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned char *ptr;
+	char *tdst;
+	const char *tsrc;
 
-	ptr = (unsigned char*)s;
+	tdst = dst;
+	tsrc = src;
+
 	while (n-- > 0)
-	{
-		*ptr++  = 0;
-	}
-	return;
+		*tdst++ = *tsrc++;
+	return(dst);
 }

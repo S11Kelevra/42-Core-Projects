@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/12 16:19:08 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/19 15:58:00 by eramirez         ###   ########.fr       */
+/*   Created: 2017/01/12 16:39:53 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/19 14:46:55 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_bzero(void *s, size_t n)
-{
-	unsigned char *ptr;
+#include <unistd.h>
 
-	ptr = (unsigned char*)s;
-	while (n-- > 0)
-	{
-		*ptr++  = 0;
-	}
-	return;
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }

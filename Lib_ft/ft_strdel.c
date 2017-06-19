@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/12 16:19:08 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/19 15:58:00 by eramirez         ###   ########.fr       */
+/*   Created: 2017/06/19 16:19:27 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/19 16:21:35 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_bzero(void *s, size_t n)
+void ft_strdel(char **as)
 {
-	unsigned char *ptr;
-
-	ptr = (unsigned char*)s;
-	while (n-- > 0)
-	{
-		*ptr++  = 0;
-	}
+	if (as == NULL)
+		return;
+	free(*as);
+	*as = NULL;
 	return;
 }

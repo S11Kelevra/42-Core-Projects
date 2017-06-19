@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/12 16:19:08 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/19 15:58:00 by eramirez         ###   ########.fr       */
+/*   Created: 2017/06/19 15:30:04 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/19 15:48:50 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_bzero(void *s, size_t n)
-{
-	unsigned char *ptr;
+#include "ft.h"
 
-	ptr = (unsigned char*)s;
-	while (n-- > 0)
-	{
-		*ptr++  = 0;
-	}
-	return;
+void *ft_memalloc(size_t size)
+{
+	unsigned char *str;
+	if (size == 0)
+		return (NULL);
+	str = malloc(size * sizeof(unsigned char));
+	ft_bzero(str, size);
+	return ((void *)str);
 }

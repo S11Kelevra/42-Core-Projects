@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/12 16:19:08 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/19 15:58:00 by eramirez         ###   ########.fr       */
+/*   Created: 2017/01/16 16:02:28 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/19 14:48:43 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_bzero(void *s, size_t n)
+void	ft_putstr(char const  *s)
 {
-	unsigned char *ptr;
+	int index;
 
-	ptr = (unsigned char*)s;
-	while (n-- > 0)
+	index = 0;
+	while (s[index] != '\0')
 	{
-		*ptr++  = 0;
+		ft_putchar(s[index]);
+		index++;
 	}
-	return;
 }
