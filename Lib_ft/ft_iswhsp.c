@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_iswhsp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/16 16:02:28 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/19 14:48:43 by eramirez         ###   ########.fr       */
+/*   Created: 2017/06/21 14:11:28 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/21 14:17:33 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void	ft_putstr(char const  *s)
+int ft_iswhsp(const char c)
 {
-	int index;
-
-	index = 0;
-	while (s[index] != '\0')
-	{
-		ft_putchar(s[index]);
-		index++;
-	}
+	if ((9 >= c && c <= 13) || c == 32 )
+		return (1);
+	return (0);
 }

@@ -1,25 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/16 16:02:28 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/19 14:48:43 by eramirez         ###   ########.fr       */
+/*   Created: 2017/06/21 20:42:10 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/21 20:44:25 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
 
-void	ft_putstr(char const  *s)
+#include "libft.h"
+
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int index;
+	char		*d;
+	const char	*s;
+	size_t		n;
+	size_t		ret;
 
-	index = 0;
-	while (s[index] != '\0')
+	d = dst;
+	s = src;
+	n = size;
+	while (n-- != 0 && *d != '\0')
+		d++;
+	ret = d - dst;
+	n = size - ret;
+	if (n == 0)
+		return (ret + ft_strlen(s));
+	while (*s != '\0')
 	{
-		ft_putchar(s[index]);
-		index++;
+		if (n != 1)
+		{
+			*d++ = *s;
+			n--;
+		}
+		s++;
 	}
+	*d = '\0';
+	return (ret + (s - src));
 }
+

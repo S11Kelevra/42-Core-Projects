@@ -6,18 +6,17 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/12 16:19:08 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/19 15:58:00 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/21 18:57:38 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include"libft.h"
+
 void ft_bzero(void *s, size_t n)
 {
-	unsigned char *ptr;
+	char *ptr;
 
-	ptr = (unsigned char*)s;
+	ptr = (char *)s;
 	while (n-- > 0)
-	{
 		*ptr++  = 0;
-	}
-	return;
 }

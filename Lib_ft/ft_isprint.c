@@ -6,11 +6,13 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/06 13:21:06 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/06 14:03:50 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/22 13:49:25 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprint(unsigned char c)
+#include"libft.h"
+
+int ft_isprint(int c)
 {
 	if (32 <= c && c <= 126)
 		return 1;

@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_skipws.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/16 16:02:28 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/19 14:48:43 by eramirez         ###   ########.fr       */
+/*   Created: 2017/06/20 14:30:54 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/20 15:52:02 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void	ft_putstr(char const  *s)
+int ft_skipws(char *str)
 {
-	int index;
-
-	index = 0;
-	while (s[index] != '\0')
-	{
-		ft_putchar(s[index]);
-		index++;
-	}
+	int i;
+	i = 0;
+	while (str[i])
+		i++;
+	return(i);
 }

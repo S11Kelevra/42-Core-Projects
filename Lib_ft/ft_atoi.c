@@ -6,9 +6,11 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 20:09:43 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/19 15:51:57 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/20 15:07:39 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include"libft.h"
 
 int	ft_atoi(char *str)
 {
@@ -27,8 +29,6 @@ int	ft_atoi(char *str)
 		sign = -1;
 		i++;
 	}
-	if ('0' > str[i] && str[i] > '9')
-		return (0);
 	total = 0;
 	while ('0' <= str[i] && str[i] <= '9')
 	{

@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/16 16:02:28 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/19 14:48:43 by eramirez         ###   ########.fr       */
+/*   Created: 2017/06/19 17:33:45 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/19 17:49:40 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void	ft_putstr(char const  *s)
+char *ft_strmap(char const *s, char (*f)(char))
 {
-	int index;
+	char *mpstr;
+	char *str;
+	int size;
 
-	index = 0;
-	while (s[index] != '\0')
-	{
-		ft_putchar(s[index]);
-		index++;
-	}
+	if (s == NULL || f == NULL)
+		return (0);
+	str = (char *)s;
+	size = ft_strlen(s);
+	mpstr = malloc(size * sizeof(unsigned char) + 1);
+	ft_bzero(mpstr, size + 1);
+	while (*str)
+		*mpstr++ = f(*str++);
+	return (mpstr);
 }

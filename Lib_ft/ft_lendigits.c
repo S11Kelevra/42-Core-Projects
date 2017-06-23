@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_lendigits.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/16 16:02:28 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/19 14:48:43 by eramirez         ###   ########.fr       */
+/*   Created: 2017/06/20 15:28:53 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/22 23:59:06 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void	ft_putstr(char const  *s)
+int ft_lendigits(int demdigits)
 {
-	int index;
+	int digylen;
+	digylen = 0;
 
-	index = 0;
-	while (s[index] != '\0')
+	if (demdigits == 0)
+		return(1);
+	while (demdigits != 0)
 	{
-		ft_putchar(s[index]);
-		index++;
+		demdigits /= 10;
+		digylen++;
 	}
+	return(digylen);
 }

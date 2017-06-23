@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_dlnwordcount.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/16 16:02:28 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/19 14:48:43 by eramirez         ###   ########.fr       */
+/*   Created: 2017/06/21 14:43:55 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/21 16:47:17 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void	ft_putstr(char const  *s)
+int ft_dlnwordcount(char const *str, char c)
 {
-	int index;
+	int count;
+	int i;
 
-	index = 0;
-	while (s[index] != '\0')
+	i = 0;
+	count = 0;
+
+	while(str[i] != 0)
 	{
-		ft_putchar(s[index]);
-		index++;
+		if (str[i] != c && (str[i + 1] == 0 || str[i + 1] == c))
+		{
+			count++;
+			i++;
+		}
+		i++;
 	}
+	return(count);
 }

@@ -6,11 +6,13 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 23:11:13 by eramirez          #+#    #+#             */
-/*   Updated: 2017/01/18 13:21:52 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/19 17:45:09 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include"libft.h"
+
+int	ft_strlen(const char *str)
 {
 	int i;
 

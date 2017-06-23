@@ -6,11 +6,13 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/06 13:06:58 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/06 13:16:21 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/22 13:52:27 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalnum(char c)
+#include"libft.h"
+
+int ft_isalnum(int c)
 {
 	if ((48 <= c && c <= 58) || ('A' <= c &&  c <= 'Z') || ('a' <= c && c <= 'z'))
 		return 1;

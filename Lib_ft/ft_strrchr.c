@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/16 16:02:28 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/19 14:48:43 by eramirez         ###   ########.fr       */
+/*   Created: 2017/06/07 10:57:00 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/22 14:43:17 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void	ft_putstr(char const  *s)
+char *ft_strrchr(const char *s, int c)
 {
-	int index;
+	int i;
 
-	index = 0;
-	while (s[index] != '\0')
+	i = ft_strlen(s);
+	while (i >= 0)
 	{
-		ft_putchar(s[index]);
-		index++;
+		if (s[i] == c)
+			return ((char *)&s[i]);
+		i--;
 	}
+	return(0);
 }
+

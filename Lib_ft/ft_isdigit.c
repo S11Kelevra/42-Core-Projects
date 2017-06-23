@@ -1,5 +1,7 @@
 
 
+#include"libft.h"
+
 int	ft_isdigit(char c)
 {
 	if (48 <= c && c <= 57)

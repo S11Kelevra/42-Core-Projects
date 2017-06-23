@@ -6,19 +6,31 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 15:33:31 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/13 15:39:20 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/22 23:19:13 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void *ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+#include"libft.h"
+
+void *ft_memmove(void *dst, const void *src, size_t len)
 {
-	char *tdst;
-	const char *tsrc;
+	unsigned char *tdst;
+	unsigned char *tsrc;
 
-	tdst = dst;
-	tsrc = src;
+	tdst = (unsigned char *)dst;
+	tsrc = (unsigned char *)src;
 
-	while(n-- > 0)
-		tdst[n] = tsrc[n];
+	if (tdst < tsrc)
+	{
+		while (len-- > 0)
+			*tdst++ = *tsrc++;
+	}
+	else
+	{
+		tdst += len;
+		tsrc +=len;
+		while (len-- > 0)
+			*--tdst = *--tsrc;
+	}
 	return(dst);
 }

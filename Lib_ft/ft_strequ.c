@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/16 16:02:28 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/19 14:48:43 by eramirez         ###   ########.fr       */
+/*   Created: 2017/06/19 18:45:04 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/20 12:01:56 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void	ft_putstr(char const  *s)
+int ft_strequ(char const *s1, char const *s2)
 {
-	int index;
-
-	index = 0;
-	while (s[index] != '\0')
+	int i;
+	i = 0;
+	if(s1 == NULL && s2 == NULL)
+		return(0);
+	while (s1[i] == s2[i])
 	{
-		ft_putchar(s[index]);
-		index++;
+		if(s1[i] == 0 && s2[i] == 0)
+			return (1);
+		i++;
 	}
+	return (0);
 }

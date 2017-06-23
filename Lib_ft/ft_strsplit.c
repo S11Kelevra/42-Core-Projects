@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/16 16:02:28 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/19 14:48:43 by eramirez         ###   ########.fr       */
+/*   Created: 2017/06/21 14:38:56 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/21 19:03:51 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void	ft_putstr(char const  *s)
+char **ft_strsplit(char const *s, char c)
 {
-	int index;
+	int i;
+	int j;
+	int elements;
+	int start;
+	char **list;
 
-	index = 0;
-	while (s[index] != '\0')
+	i = 0;
+	j = 0;
+	elements = ft_dlnwordcount(s, c);
+	list = (char **)ft_memalloc(elements + 1);
+	while(j < elements)
 	{
-		ft_putchar(s[index]);
-		index++;
+		while (s[i] && s[i] == c)
+			i++;
+		start = i;
+		while (s[i] && s[i] != c)
+			i++;
+		list[j] = ft_strsub(s, start, i - start);
+		j++;
+		i++;
 	}
+	list[j] = NULL;
+	return (list);
 }

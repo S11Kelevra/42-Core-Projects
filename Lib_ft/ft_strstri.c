@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strstri.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/16 16:02:28 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/19 14:48:43 by eramirez         ###   ########.fr       */
+/*   Created: 2017/06/22 22:57:03 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/22 23:04:07 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-void	ft_putstr(char const  *s)
+int	ft_strstri(const char *big, const char *little)
 {
-	int index;
+    int i;
+    int limit;
+    int littlen;
+    char *loc;
 
-	index = 0;
-	while (s[index] != '\0')
-	{
-		ft_putchar(s[index]);
-		index++;
-	}
+    loc = (char *)big;
+    i = 0;
+    limit = ft_strlen(big);
+    littlen = ft_strlen(little);
+
+    if (!little)
+        return(-1);
+    while (i <= limit)
+    {
+        if (ft_strncmp(&big[i], little, littlen) == 0)
+            return (i);
+        i++;
+    }
+    return(-1);
 }

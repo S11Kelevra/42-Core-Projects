@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/16 16:02:28 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/19 14:48:43 by eramirez         ###   ########.fr       */
+/*   Created: 2017/01/17 17:00:32 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/22 23:07:50 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void	ft_putstr(char const  *s)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int index;
+	int result;
+	char *copy;
 
-	index = 0;
-	while (s[index] != '\0')
-	{
-		ft_putchar(s[index]);
-		index++;
-	}
+	copy = ft_strnew(len);
+	ft_strncpy(copy, (char *)big, len);
+	result = ft_strstri(copy, little);
+	if(result == -1)
+		return(NULL);
+	else
+		return((char *)&big[result]);
 }
