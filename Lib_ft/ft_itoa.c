@@ -6,40 +6,36 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 15:13:46 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/23 00:08:25 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/26 21:28:33 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
-#include <stdio.h>
+
 char *ft_itoa(int n)
 {
-	int demdigits;
 	int lendiggies;
+	int neg;
+	int flip;
 	char *datascii;
-
-	demdigits = n;
-	lendiggies = ft_lendigits(demdigits);
-	printf("%i\n", lendiggies);
-
-	if (n == 0)
-		return("0");
+	
+	flip = 1;
+	neg = 1;
+	lendiggies = ft_lendigits(n);
 	if (n < 0)
 	{
-		lendiggies++;
-		demdigits = -demdigits;
-		datascii = ft_strnew(lendiggies);
+		flip = -1;
+		neg = 0;
+		if(!(datascii = ft_strnew(lendiggies + 1)))
+			return (0);
 		datascii[0] = '-';
 	}
-	else
-		datascii = ft_strnew(lendiggies);
-
-	while (lendiggies > 0)
+	else if(!(datascii = ft_strnew(lendiggies)))
+		return (0);
+	while (lendiggies-- > 0)
 	{
-		datascii[lendiggies - 1] = (demdigits % 10) + 48;
-		demdigits /= 10;
-		lendiggies--;
+		datascii[lendiggies - neg + 1] = flip * (n % 10) + 48;
+		n /= 10;
 	}
-	printf("%s\n", datascii);
 	return (datascii);
 }

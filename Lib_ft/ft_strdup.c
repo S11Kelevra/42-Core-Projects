@@ -6,7 +6,7 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 09:57:14 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/22 19:31:18 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/26 20:18:56 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ char	*ft_strdup(const char *src)
 {
 	char *copy;
 
-	copy = ft_strnew(ft_strlen(src));
+	if(!(copy = ft_strnew(ft_strlen(src))))
+		return (0);
 	ft_strcpy(copy, src);
 	return (copy);
 }

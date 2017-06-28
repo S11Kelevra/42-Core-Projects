@@ -6,7 +6,7 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 14:43:55 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/21 16:47:17 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/26 22:29:53 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ int ft_dlnwordcount(char const *str, char c)
 	{
 		if (str[i] != c && (str[i + 1] == 0 || str[i + 1] == c))
 		{
-			count++;
-			i++;
+			count++;;
 		}
 		i++;
 	}

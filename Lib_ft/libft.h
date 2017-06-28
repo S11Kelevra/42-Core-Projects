@@ -6,7 +6,7 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 18:51:17 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/22 23:35:27 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/27 16:00:22 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ char	*ft_strtrim(char const *s);
 char	**ft_strsplit(char const *s, char c);
 char    *ft_strcpy(char *dest, const char *src);
 char    *ft_strncpy(char *dest, char *src, unsigned int n);
+int 	ft_atoi(char *str);
 int 	ft_wordcount(char const *str);
 int 	ft_dlnwordcount(char const *str, char c);
 int 	ft_iswhsp(const char c);
@@ -72,7 +73,7 @@ int		ft_skipws(char *str);
 int 	ft_isascii(int c);
 int 	ft_strlen(const char *str);
 int		ft_isalpha(int c);
-int 	ft_isdigit(char c);
+int 	ft_isdigit(int c);
 int 	ft_isalnum(int c);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);

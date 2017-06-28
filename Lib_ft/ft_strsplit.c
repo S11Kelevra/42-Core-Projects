@@ -6,7 +6,7 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 14:38:56 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/21 19:03:51 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/27 18:02:00 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,12 @@ char **ft_strsplit(char const *s, char c)
 
 	i = 0;
 	j = 0;
+	start = 0;
+	if (s == 0 || c == 0)
+		return (0);
 	elements = ft_dlnwordcount(s, c);
-	list = (char **)ft_memalloc(elements + 1);
+	if(!(list = (char **)malloc(sizeof(char*) * (elements) + 1)))
+		return(0);
 	while(j < elements)
 	{
 		while (s[i] && s[i] == c)

@@ -6,7 +6,7 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/22 23:33:44 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/22 23:37:45 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/26 16:29:02 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 
 void ft_putendl(char const *s)
 {
-    int i;
-
-    i = 0;
-    while(s[i])
-    {
-        ft_putchar(s[i]);
-        i++;
-    }
+	ft_putstr(s);
     ft_putchar('\n');
 }
