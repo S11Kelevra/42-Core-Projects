@@ -6,11 +6,11 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 20:09:43 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/20 15:07:39 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/27 20:33:13 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 int	ft_atoi(char *str)
 {

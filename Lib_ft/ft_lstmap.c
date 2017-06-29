@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/16 16:02:28 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/27 19:27:57 by eramirez         ###   ########.fr       */
+/*   Created: 2017/06/28 15:32:06 by eramirez          #+#    #+#             */
+/*   Updated: 2017/06/28 22:13:28 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	int index;
+	t_list *temp;
+	t_list *ilst;
 
-	index = 0;
-	while (s[index] != '\0')
+	if (lst)
 	{
-		ft_putchar(s[index]);
-		index++;
+		temp = f(lst);
+		if (!(ilst = temp))
+			return (0);
+		while (lst->next)
+		{
+			lst = lst->next;
+			temp->next = f(lst);
+			if (!(temp->next))
+				return (0);
+			temp = temp->next;
+		}
+		return (ilst);
 	}
+	else
+		return (0);
 }

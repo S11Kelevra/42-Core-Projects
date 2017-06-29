@@ -6,16 +6,16 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/06 15:07:15 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/21 21:04:39 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/27 19:59:29 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
 	if (97 <= c && c <= 122)
 		return (c - 32);
 	else
-		return c;
+		return (c);
 }

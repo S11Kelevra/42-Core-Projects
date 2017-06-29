@@ -6,16 +6,16 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/07 10:57:00 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/22 14:10:30 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/27 20:04:54 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	int i;
-	char *loc;
+	int		i;
+	char	*loc;
 
 	loc = (char *)s;
 	i = 0;
@@ -26,5 +26,5 @@ char *ft_strchr(const char *s, int c)
 		i++;
 		loc++;
 	}
-	return loc;
+	return (loc);
 }

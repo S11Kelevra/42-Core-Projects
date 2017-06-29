@@ -6,16 +6,16 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/06 13:21:06 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/22 13:49:25 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/27 21:03:02 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-int ft_isprint(int c)
+int	ft_isprint(int c)
 {
 	if (32 <= c && c <= 126)
-		return 1;
+		return (1);
 	else
-		return 0;
+		return (0);
 }

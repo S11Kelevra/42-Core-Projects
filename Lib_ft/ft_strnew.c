@@ -6,18 +6,18 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 16:09:59 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/22 19:26:21 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/27 20:02:57 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-char *ft_strnew(size_t size)
+char	*ft_strnew(size_t size)
 {
 	char *str;
 
 	if (!(str = (char *)malloc(sizeof(char) * size + 1)))
-		return(NULL);
+		return (NULL);
 	ft_bzero(str, size + 1);
 	return (str);
 }

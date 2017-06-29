@@ -6,29 +6,27 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 14:38:56 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/27 18:02:00 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/28 22:11:13 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-char **ft_strsplit(char const *s, char c)
+char	**ft_strsplit(char const *s, char c)
 {
-	int i;
-	int j;
-	int elements;
-	int start;
-	char **list;
+	int		i;
+	int		j;
+	int		start;
+	char	**list;
 
 	i = 0;
 	j = 0;
 	start = 0;
 	if (s == 0 || c == 0)
 		return (0);
-	elements = ft_dlnwordcount(s, c);
-	if(!(list = (char **)malloc(sizeof(char*) * (elements) + 1)))
-		return(0);
-	while(j < elements)
+	if (!(list = (char **)malloc(sizeof(char*) * ft_dlnwordcount(s, c) + 1)))
+		return (0);
+	while (j < ft_dlnwordcount(s, c))
 	{
 		while (s[i] && s[i] == c)
 			i++;

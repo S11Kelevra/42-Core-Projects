@@ -6,13 +6,13 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 12:09:53 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/21 20:17:48 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/27 20:09:13 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-char *ft_strcat(char *s1, const char *s2)
+char	*ft_strcat(char *s1, const char *s2)
 {
 	int i;
 	int j;

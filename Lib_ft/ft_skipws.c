@@ -6,17 +6,18 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 14:30:54 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/20 15:52:02 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/27 20:50:45 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-int ft_skipws(char *str)
+int	ft_skipws(char *str)
 {
 	int i;
+
 	i = 0;
 	while (str[i])
 		i++;
-	return(i);
+	return (i);
 }

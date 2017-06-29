@@ -6,17 +6,17 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/19 15:59:28 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/19 16:06:50 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/27 19:27:11 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-void ft_memdel(void **ap)
+void	ft_memdel(void **ap)
 {
 	if (ap == NULL)
-		return;
+		return ;
 	free(*ap);
 	*ap = NULL;
-	return;
+	return ;
 }

@@ -6,19 +6,19 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 15:13:46 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/26 21:28:33 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/27 20:25:34 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	int lendiggies;
-	int neg;
-	int flip;
-	char *datascii;
-	
+	int		lendiggies;
+	int		neg;
+	int		flip;
+	char	*datascii;
+
 	flip = 1;
 	neg = 1;
 	lendiggies = ft_lendigits(n);
@@ -26,11 +26,11 @@ char *ft_itoa(int n)
 	{
 		flip = -1;
 		neg = 0;
-		if(!(datascii = ft_strnew(lendiggies + 1)))
+		if (!(datascii = ft_strnew(lendiggies + 1)))
 			return (0);
 		datascii[0] = '-';
 	}
-	else if(!(datascii = ft_strnew(lendiggies)))
+	else if (!(datascii = ft_strnew(lendiggies)))
 		return (0);
 	while (lendiggies-- > 0)
 	{

@@ -6,15 +6,15 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 14:11:28 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/26 17:00:25 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/27 20:37:17 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-int ft_iswhsp(const char c)
+int	ft_iswhsp(const char c)
 {
-	if ((9 <= c && c <= 13) || c == 32 )
+	if ((9 <= c && c <= 13) || c == 32)
 		return (1);
 	return (0);
 }

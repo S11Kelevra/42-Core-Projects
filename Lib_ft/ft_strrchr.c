@@ -6,13 +6,13 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/07 10:57:00 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/22 14:43:17 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/27 20:05:40 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int i;
 
@@ -23,6 +23,5 @@ char *ft_strrchr(const char *s, int c)
 			return ((char *)&s[i]);
 		i--;
 	}
-	return(0);
+	return (0);
 }
-

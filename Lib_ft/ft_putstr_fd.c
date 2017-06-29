@@ -6,18 +6,18 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/20 11:55:00 by eramirez          #+#    #+#             */
-/*   Updated: 2017/06/20 11:56:23 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/06/27 19:50:10 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-void ft_putstr_fd(char const *s,int fd)
+void	ft_putstr_fd(char const *s, int fd)
 {
 	int i;
 
 	i = 0;
-	while(s[i])
+	while (s[i])
 	{
 		ft_putchar_fd(s[i], fd);
 		i++;

@@ -6,7 +6,7 @@
 #    By: eramirez <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/23 12:33:27 by eramirez          #+#    #+#              #
-#    Updated: 2017/06/23 12:33:46 by eramirez         ###   ########.fr        #
+#    Updated: 2017/06/28 22:21:09 by eramirez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,8 @@ NAME = libft.a
 
 SRCS = 	ft_atoi.c 		\
 		ft_bzero.c 		\
+		ft_dlnwordcount.c\
+		ft_firstchar.c	\
 		ft_isalnum.c 	\
 		ft_isalpha.c  	\
 		ft_isascii.c 	\
@@ -21,6 +23,14 @@ SRCS = 	ft_atoi.c 		\
 		ft_isprint.c 	\
 		ft_iswhsp.c		\
 		ft_itoa.c 		\
+		ft_lastchar.c	\
+		ft_lendigits.c  \
+		ft_lstadd.c		\
+		ft_lstdel.c		\
+		ft_lstdelone.c	\
+		ft_lstiter.c	\
+		ft_lstmap.c		\
+		ft_lstnew.c		\
 		ft_memalloc.c 	\
 		ft_memccpy.c 	\
 		ft_memchr.c 	\
@@ -37,10 +47,9 @@ SRCS = 	ft_atoi.c 		\
 		ft_putnbr_fd.c 	\
 		ft_putstr.c 	\
 		ft_putstr_fd.c 	\
+		ft_skipws.c		\
 		ft_strcat.c 	\
 		ft_strchr.c 	\
-		ft_strrchr.c	\
-		ft_strlcat.c	\
 		ft_strclr.c 	\
 		ft_strcmp.c 	\
 		ft_strcpy.c 	\
@@ -50,6 +59,7 @@ SRCS = 	ft_atoi.c 		\
 		ft_striter.c 	\
 		ft_striteri.c 	\
 		ft_strjoin.c 	\
+		ft_strlcat.c	\
 		ft_strlen.c 	\
 		ft_strmap.c 	\
 		ft_strmapi.c 	\
@@ -58,20 +68,16 @@ SRCS = 	ft_atoi.c 		\
 		ft_strncpy.c 	\
 		ft_strnequ.c 	\
 		ft_strnew.c 	\
+		ft_strnstr.c	\
+		ft_strrchr.c	\
 		ft_strsplit.c 	\
 		ft_strstr.c 	\
-		ft_strnstr.c	\
+		ft_strstri.c	\
 		ft_strsub.c 	\
 		ft_strtrim.c 	\
 		ft_tolower.c 	\
 		ft_toupper.c 	\
-		ft_skipws.c		\
-		ft_firstchar.c	\
-		ft_lastchar.c	\
 		ft_wordcount.c	\
-		ft_dlnwordcount.c\
-		ft_lendigits.c  \
-		ft_strstri.c	\
 
 BIN = $(SRCS:.c=.o)
 
