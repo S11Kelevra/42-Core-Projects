@@ -10,7 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+<<<<<<< HEAD
 #include "libft.h"
+=======
+#include"libft.h"
+
+char *ft_itoa(int n)
+{
+	int demdigits;
+	int lendiggies;
+	char *datascii;
+>>>>>>> 082ee59685cf442c9975d03e98d405f74f7a4c03
 
 char	*ft_itoa(int n)
 {
