@@ -6,7 +6,7 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/03 14:57:59 by eramirez          #+#    #+#             */
-/*   Updated: 2017/09/06 14:31:48 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/09/14 19:30:33 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ char	**ft_read(char *file, char *g_str)
 	i = -1;
 	ft_bzero(g_buff, 1);
 	ft_bzero(g_str, 10000);
-	if ((fd = open(file, O_RDONLY)) == -1)
-		return (0);
+	if ((fd = open(file, O_RDONLY)) < 0)
+		return (NULL);
 	while (read(fd, g_buff, 1) != 0)
 		g_str[++i] = g_buff[0];
 	close(fd);
@@ -87,5 +87,6 @@ char	**ft_read(char *file, char *g_str)
 	i = -1;
 	while (lst[++i] != 0)
 		lst[i] = ft_dstrtrim(lst[i], '.');
+	g_npieces = i;
 	return (lst);
 }

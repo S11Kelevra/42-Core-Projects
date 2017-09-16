@@ -6,7 +6,7 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 14:55:01 by eramirez          #+#    #+#             */
-/*   Updated: 2017/09/07 21:50:03 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/09/14 19:49:31 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,25 @@ int		new_lines(char *buff)
 	return (1);
 }
 
-int		valid_format(char *input)
+int		valid_format(int fd)
 {
-	char	buff[22];
-	int		fd;
-	int		i;
+	int	i;
 
-	if (!(fd = open(input, O_RDONLY)))
-		return (0);
 	i = 21;
 	while (i == 21)
 	{
-		i = read(fd, buff, 21);
+		i = read(fd, g_vbuff, 21);
 		if (i != 21)
 			break ;
-		if (buff[20] != '\n' && !new_lines(buff))
+		g_vbuff[21] = '\0';
+		if (g_vbuff[20] != '\n' || !new_lines(g_vbuff))
 			return (0);
 	}
 	if (i == 20)
 	{
-		i = read(fd, buff, 20);
-		if (!new_lines(buff))
+		i = read(fd, g_vbuff, 20);
+		g_vbuff[20] = '\0';
+		if (!new_lines(g_vbuff))
 			return (0);
 	}
 	else
@@ -81,22 +79,23 @@ void	zero_gpieces(void)
 int		main(int argc, char **argv)
 {
 	char		**input;
+	int			fd;
 	t_bitfield	test;
 
-	zero_gpieces();
-	if (!(valid_format(argv[1])))
+	fd = open(argv[1], O_RDONLY);
+	if (fd < 0 || argc != 2)
 	{
 		ft_errormsg(0);
 		return (0);
 	}
-	if (!(input = ft_read(argv[1], g_str)) || argc != 2)
+	if (!(valid_format(fd)) || !(input = ft_read(argv[1], g_str)) ||
+			ft_isvalid(input) != 1)
 	{
 		ft_errormsg(0);
 		return (0);
 	}
 	else
 	{
-		ft_errormsg(ft_isvalid(input));
 		test = ft_bfzero();
 		ft_fillit(test);
 		print_sol();

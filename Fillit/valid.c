@@ -6,7 +6,7 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 19:05:40 by eramirez          #+#    #+#             */
-/*   Updated: 2017/09/06 12:02:32 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/09/14 16:09:24 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,9 @@ int		ft_isvalid(char **input)
 	gp = 0;
 	ft_setvalid();
 	ft_set_ghexb();
+	g_pieces = malloc(sizeof(ULL) * g_npieces + 1);
 	while (input[++i] != 0)
 	{
-		if (i > 25)
-			return (-1);
 		if (ft_check(input[i], g_chrb) == -1)
 			return (0);
 		else
@@ -98,7 +97,6 @@ int		ft_isvalid(char **input)
 			gp++;
 		}
 	}
-	g_npieces = gp;
 	g_flags = ft_strnew(gp);
 	i = -1;
 	while (++i < gp)

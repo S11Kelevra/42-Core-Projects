@@ -6,7 +6,7 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/03 11:35:00 by eramirez          #+#    #+#             */
-/*   Updated: 2017/09/06 15:20:51 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/09/14 16:09:42 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,14 @@
 
 char			*g_solved;
 char			g_buff[1];
+char			g_vbuff[22];
 char			g_str[10000];
 char			g_chrb[20][17];
 char			*g_flags;
 unsigned int	g_npieces;
 unsigned int	g_bsize;
 ULL				g_hexb[19];
-ULL				g_pieces[27];
+ULL				*g_pieces;
 
 typedef struct	s_bitfield
 {
