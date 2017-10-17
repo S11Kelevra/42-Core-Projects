@@ -115,62 +115,62 @@ def auto_drive(images):
 def manual_drive(intent, teach=False):
     for act_i in range(len(actions)):
         tmp = actions[act_i]
-        if tmp==intent:
+        if tmp==intent:         # matches the intended action with the list of actions
             logging.debug("acting out %d" % tmp)
-            if not teach:
+            if not teach:       # if teach if false...
                 rc_car.drive(conv_to_vec(links[act_i]))
             return act_i, True
     return None, False
 
 def drive(auto, set_name, rec_dirs=None, teach=False):
-    ot = 0
-    img_ot = 0
+    ot = 0      # original time(?)
+    img_ot = 0  # image original time(?)
     running = True
 
     intent = 0
     label_path = os.path.join(set_name, set_name+'.csv') # makes a .csv(comma separated values) file of the set name
     label_path = os.path.join(config.pre_path, label_path)
 
-    with open(label_path, 'w') as csv_file:
+    with open(label_path, 'w') as csv_file:     # opens setname.cvs in write
         entry = None
-        csv_writer = csv.writer(csv_file, delimiter=',')
-        csv_writer.writerow(attributes)
-        while running:
-            for event in pygame.event.get():
+        csv_writer = csv.writer(csv_file, delimiter=',')    # returns an object converting the data into delimited strings
+        csv_writer.writerow(attributes)     # writes attributes to the file object (cam_1, can_2, action)
+        while running:  #set true in variable declarations
+            for event in pygame.event.get():    # removes events in the queue and returns them in a list, then reads the events
                 if event.type == pygame.QUIT:   # if pygame quits, running becomes false
                     running = False
-            ct = time.time()
+            ct = time.time()        # returns the time in seconds
             drive = True if (ct - ot) * 1000 > rc_car.exp + delta_time else drive
             surface, images, filenames = disp.show((rec_dirs), rec_dirs)
             screen.blit(surface[0], (0,0))
             screen.blit(surface[1], (disp_conf['oshape'][0],0))
             pygame.display.flip()
             keys = pygame.key.get_pressed()
-            for act_i in range(len(actions)):
+            for act_i in range(len(actions)):   # sets the intent to the action input
                 tmp = actions[act_i]
                 if keys[tmp]:
                     logging.debug("Key pressed %d" % tmp)
                     intent = tmp
             if keys[pygame.K_ESCAPE] or keys[pygame.K_q] or \
-                pygame.event.peek(pygame.QUIT):
-                logging.debug("Exit pressed")
+                pygame.event.peek(pygame.QUIT):         # If exited with esc, q, or the quit event
+                logging.debug("Exit pressed")           # then notify the debug log, and return to main
                 return
-            if drive and not auto:
+            if drive and not auto:              # if in manual...
                 logging.debug("Manual Drive")
                 drive = False
                 car_act, flag = manual_drive(intent, teach)
-                if flag:
-                    entry = [
+                if flag:    # if manual_drive returned the 'True' flag
+                    entry = [           # gathers info for a log entry (found in final if statement)
                         filenames[0],
                         filenames[1],
                         car_act
                     ]
                 intent = 0
                 ot = ct
-            if keys[pygame.K_a]:
+            if keys[pygame.K_a]:        # toggles auto on
                 auto = True
                 logging.info("Autopilot mode on!")
-            if keys[pygame.K_s]:
+            if keys[pygame.K_s]:        # toggles auto off
                 auto = False
                 logging.info("Autopilot mode off!")
             keys = []
@@ -178,15 +178,15 @@ def drive(auto, set_name, rec_dirs=None, teach=False):
             if images and auto and drive:
                 logger.debug("Auto drive")
                 drive = False
-                cat_act, flag = auto_drive(images)
+                cat_act, flag = auto_drive(images)  # calls auto_drive
                 ot = ct
-                if flag:
-                    entry = [
+                if flag:                # if auto_drive returned the 'True' flag
+                    entry = [           # gathers info for a log entry (found in final if statement)
                         filenames[0],
                         filenames[1],
                         car_act
                     ]
-            if entry:
+            if entry:                   # writes entry information to the csv object then clears entry
                 csv_writer.writerow(entry)
                 entry = None
 
