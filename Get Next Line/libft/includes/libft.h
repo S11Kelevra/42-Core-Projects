@@ -43,6 +43,7 @@ char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strtrim(char const *s);
 int				ft_atoi(char *str);
 int				ft_dlnwordcount(char const *str, char c);
+int				ft_findchr(char *str, char c);
 int				ft_firstchar(const char *str);
 int				ft_isalnum(int c);
 int				ft_isalpha(int c);

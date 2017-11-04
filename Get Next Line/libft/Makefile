@@ -15,6 +15,7 @@ NAME = libft.a
 SRCS = 	ft_atoi.c 		\
 		ft_bzero.c 		\
 		ft_dlnwordcount.c\
+		ft_findchr.c	\
 		ft_firstchar.c	\
 		ft_isalnum.c 	\
 		ft_isalpha.c  	\
@@ -88,7 +89,7 @@ CC = gcc
 all: $(NAME)
 
 $(NAME):
-	@$(CC) $(FLAGS) -c $(SRCS) 
+	@$(CC) $(FLAGS) -c $(SRCS)
 	@ar rc $(NAME) $(BIN)
 
 clean:
