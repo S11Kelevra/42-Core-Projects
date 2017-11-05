@@ -6,7 +6,7 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/15 19:33:45 by eramirez          #+#    #+#             */
-/*   Updated: 2017/11/03 20:39:52 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/11/04 16:20:39 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,20 @@ t_getnl	*gnl_start(int fd, t_getnl *head)
 	{
 		temp = (t_getnl *)malloc(sizeof(t_getnl));
 		temp->fd = fd;
-		ft_bzero(temp->buff, BUFFS);
+		ft_bzero(temp->buff, BUFF_SIZE + 1);
 		temp->next = NULL;
-		return(temp);
+		return (temp);
 	}
 	while (head->fd != fd && head->next != NULL)
 		head = head->next;
 	if (head->fd == fd)
-		return(head);
+		return (head);
 	temp = (t_getnl *)malloc(sizeof(t_getnl));
 	temp->fd = fd;
-	ft_bzero(temp->buff, BUFFS);
+	ft_bzero(temp->buff, BUFF_SIZE + 1);
 	temp->next = NULL;
 	head->next = temp;
-	return(temp);
+	return (temp);
 }
 
 char	*free_join(char *line, char const *buff)
@@ -48,9 +48,9 @@ char	*free_join(char *line, char const *buff)
 		return (ft_strdup(buff));
 	else if (buff == 0)
 		return (ft_strdup(line));
-	if (!(joined = ft_strnew(ft_strlen(line) + ft_strlen(buff))))
-		return (0);
 	i = ft_strlen(line);
+	if (!(joined = ft_strnew(i + ft_strlen(buff))))
+		return (0);
 	temp = ft_strdup(line);
 	free(line);
 	ft_memmove(joined, temp, i);
@@ -61,13 +61,13 @@ char	*free_join(char *line, char const *buff)
 
 void	str_snip(char *str, int snip)
 {
-	int i;
-	char temp[BUFFS];
+	int		i;
+	char	temp[BUFF_SIZE + 1];
 
 	i = 0;
 	snip++;
 	ft_strcpy(temp, str);
-	ft_bzero(str, BUFFS);
+	ft_bzero(str, BUFF_SIZE + 1);
 	while (temp[snip])
 	{
 		str[i] = temp[snip];
@@ -76,14 +76,12 @@ void	str_snip(char *str, int snip)
 	}
 }
 
-int	get_the_strap(const int fd, char **line, char *buff)
+int		get_the_strap(const int fd, char **line, char *buff)
 {
-	int i;
-	int j;
-	char *temp;
+	int		i;
+	int		j;
+	char	*temp;
 
-	i = 0;
-	j = 0;
 	while ((i = read(fd, buff, BUFF_SIZE)) > 0)
 	{
 		*line = free_join(*line, buff);
@@ -91,28 +89,27 @@ int	get_the_strap(const int fd, char **line, char *buff)
 		{
 			temp = ft_strdup(*line);
 			free(*line);
-			*line = ft_strsub(temp, 0, ft_findchr(*line, '\n'));
-			//str_snip(buff, j);
-			buff = ft_strncpy(buff, &buff[j + 1], BUFF_SIZE);
-			return(1);
+			*line = ft_strsub(temp, 0, ft_findchr(temp, '\n'));
+			str_snip(buff, j);
+			return (1);
 		}
 		else if (i < BUFF_SIZE)
 		{
-			ft_bzero(buff, BUFFS);
-			return(1);
+			ft_bzero(buff, BUFF_SIZE + 1);
+			return (1);
 		}
-		ft_bzero(buff, BUFFS);
+		ft_bzero(buff, BUFF_SIZE + 1);
 	}
 	if (i == 0 && **line != 0 && buff[0] == '\0')
-		return(1);
-	return(i);
+		return (1);
+	return (i);
 }
 
-int	get_next_line(const int fd, char **line)
+int		get_next_line(const int fd, char **line)
 {
 	static t_getnl	*head;
 	t_getnl			*node;
-	int 			i;
+	int				i;
 
 	i = 0;
 	if (!line || fd < 0)
@@ -123,11 +120,10 @@ int	get_next_line(const int fd, char **line)
 	if ((i = ft_findchr(node->buff, '\n')) >= 0)
 	{
 		*line = ft_strsub(node->buff, 0, i);
-		//node->buff = ft_strncpy(node->buff, &node->buff[i + 1], BUFF_SIZE);
 		str_snip(node->buff, i);
-		return(1);
+		return (1);
 	}
 	*line = ft_strdup(node->buff);
-	ft_bzero(node->buff, BUFFS);
+	ft_bzero(node->buff, BUFF_SIZE + 1);
 	return (get_the_strap(fd, line, node->buff));
 }

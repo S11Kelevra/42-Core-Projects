@@ -6,7 +6,7 @@
 /*   By: eramirez <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/03 17:17:31 by eramirez          #+#    #+#             */
-/*   Updated: 2017/11/03 17:19:31 by eramirez         ###   ########.fr       */
+/*   Updated: 2017/11/04 16:14:54 by eramirez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	ft_findchr(char *str, char c)
 	i = -1;
 	while (str[++i])
 	{
-		if(str[i] == c)
-			return(i);
+		if (str[i] == c)
+			return (i);
 	}
-	return(-1);
+	return (-1);
 }

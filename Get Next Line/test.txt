@@ -1,4 +1,0 @@
-LAAA The quick brown fox jumps over the brown lazy dog.
-
-
-This is the next line of this file.
