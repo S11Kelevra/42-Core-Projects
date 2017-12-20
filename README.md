@@ -1,7 +1,7 @@
 42 Core Cirriculum Projects
 ===
 
-  These are the several projects required to be completed before accessing further branches.
+  These are the several projects required to be completed before accessing further branches. Full assignment details can be found in the pdfs.
   
 Libft
 ---
