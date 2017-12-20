@@ -11,7 +11,11 @@ Fillit
 ---
 Packing problem solver for tetris pieces.  Input is given to the program using valid newline seperated tetrominos (max of 26) output with a valid file will be a solution of the smallest possible square with each piece in its upperleft most position according to its order.
     
-Usage: `./fillit [path to file]`    
+Usage:
+  
+  `make all`
+  
+  `./fillit [path to file]`    
 
 <img src="https://github.com/S11Kelevra/42-Core-Projects/blob/master/media/fillitcap.png" width="500">
 
