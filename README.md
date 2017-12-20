@@ -21,4 +21,6 @@ Usage:
 
 Get Next line
 ---
-Function used to get lines from inputs.
+Function used read and reuturn lines from a given file descriptor. Succesive calls to the function returns the next line untill the EOF. Bytes read is defined by `BUFF_SIZE` macro in the header.
+
+Returns
