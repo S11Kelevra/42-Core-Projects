@@ -12,9 +12,10 @@
     Packing problem solver for tetris pieces.
     
     Usage:
-    '''
+    
+    ```
     ./fillit [path to file]
-    '''
+    ```
     
     Output:
 
