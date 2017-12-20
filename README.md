@@ -21,4 +21,6 @@ Usage:
 
 Get Next line
 ---
+`int					get_next_line(const int fd, char **line)`
+
 Function used read and reuturn lines from a given file descriptor. Succesive calls to the function returns the next line untill the EOF. Bytes read is defined by `BUFF_SIZE` macro in the header. Multiple file descriptors are handled though a linked list and one static variable used for bonuses.
