@@ -9,7 +9,14 @@
 
   Fillit
   ---
-  Packing problem solver for tetris pieces.
+    Packing problem solver for tetris pieces.
+    
+    Usage:
+    '''
+    ./fillit [path to file]
+    '''
+    
+    Output:
 
   Get Next line
   ---
